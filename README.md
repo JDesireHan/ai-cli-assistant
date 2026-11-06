@@ -61,10 +61,11 @@ assistant/
 - [x] 配好 .env，`python main.py` 跑起来（2026-11-03 凌晨完成，附带首次真实调试：修了 tools.py 结构 bug）
 - [x] 读 `assistant/loop.py`，用自己的话在 README 写清「LLM 是怎么调用工具的」（2026-11-04 凌晨完成，含 print 实验：消息数 2 → 4）
 - [x] **动手**：自己加一个新工具 `list_project_files()`（2026-11-05 完成：AI 生成 + 人工 review，修了「整段插入导致重复定义」的事故；验收通过，返回 4 个 .py 文件）
-- [x] **动手**：给助手加「记住用户名字」功能（2026-11-06 完成：`set_user_name` 工具 + `user_profile.json` 持久化 + `load_user_name` 注入 system prompt；离线验证通过，含文件不存在/JSON 损坏兜底、改名去重）
+- [x] **动手**：给助手加「记住用户名字」功能（2026-11-06 完成并**实跑验收通过**：`set_user_name` 工具 + `user_profile.json` 持久化 + `load_user_name` 注入 system prompt；「我叫张三」→ 工具调用 → 改名李四后档案为 `{"name":"李四","historyname":["张三"]}` → exit 重启后仍记得。离线验证另含文件不存在/JSON 损坏兜底、坏参数兜底）
 - [x] **动手**：把 tools.py 里的 `import json` 挪到文件顶部（已在顶部，`execute_tool` 内只保留 `json.loads`；`main.py` 曾被粘入问答模式的无效片段，已清理）
-- [ ] 用 Git 初始化仓库：`git init && git add -A && git commit -m "feat: CLI AI assistant with tool calling"`
+- [x] 用 Git 初始化仓库（2026-11-06 完成：`cfa196f` 首次提交；`18f4b49` 把运行时 `user_profile.json` 移出版本库。`.env` 与用户档案均已排除，未入库）
 - [ ] 推到 GitHub，README 补一张运行截图
+  - 推之前先改提交身份：`git config user.name "你的GitHub用户名"` + `git config user.email "你的GitHub邮箱"`（当前提交用的是临时身份 `han@localhost`，不设置的话推上去贡献不会关联到你的账号）
 
 ## Week 2 预告
 
