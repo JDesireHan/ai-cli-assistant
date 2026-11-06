@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+user_profile.json          # 运行时产生的用户数据，不进版本库
