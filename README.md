@@ -64,8 +64,22 @@ assistant/
 - [x] **动手**：给助手加「记住用户名字」功能（2026-11-06 完成并**实跑验收通过**：`set_user_name` 工具 + `user_profile.json` 持久化 + `load_user_name` 注入 system prompt；「我叫张三」→ 工具调用 → 改名李四后档案为 `{"name":"李四","historyname":["张三"]}` → exit 重启后仍记得。离线验证另含文件不存在/JSON 损坏兜底、坏参数兜底）
 - [x] **动手**：把 tools.py 里的 `import json` 挪到文件顶部（已在顶部，`execute_tool` 内只保留 `json.loads`；`main.py` 曾被粘入问答模式的无效片段，已清理）
 - [x] 用 Git 初始化仓库（2026-11-06 完成：`cfa196f` 首次提交；`18f4b49` 把运行时 `user_profile.json` 移出版本库。`.env` 与用户档案均已排除，未入库）
-- [ ] 推到 GitHub，README 补一张运行截图
-  - 推之前先改提交身份：`git config user.name "你的GitHub用户名"` + `git config user.email "你的GitHub邮箱"`（当前提交用的是临时身份 `han@localhost`，不设置的话推上去贡献不会关联到你的账号）
+- [x] 推到 GitHub（2026-11-23 完成：远端 `master` 已与本地 `993d0ec` 同步，github.com/JDesireHan/ai-cli-assistant 不再是空仓库。提交身份早已改为 `JDesireHan`）
+- [ ] README 补一张运行截图
+  - 跑一遍 `python main.py`，问它「现在几点了？」触发一次工具调用，截一张能看到工具调用过程和最终回答的图，存为 `docs/screenshot.png`，并在 README「快速开始」小节里引用（`![运行截图](docs/screenshot.png)`），然后 `git add docs && git commit && git push`
+
+## Week 4 打卡清单（2026-11-23 ~ 11-29，投递顺延一周后的重排版）
+
+> 原计划 Week 4 开始投简历，但 RAG 项目（项目 #2）尚未开工。
+> 决策：**投递顺延到 12-01（下周一）**，本周 5 天全部投入 RAG，只为保住简历上最重的那一块。
+
+- [ ] W4-D2（周二）：RAG 最小闭环·上——准备 3 篇司法鉴定文档，切块 → Chroma embedding → 检索 Top-5
+- [ ] W4-D3（周三）：RAG 最小闭环·下——检索结果喂给 LLM 生成，回答带引用来源（哪篇文档哪段）
+- [ ] W4-D4（周四）：拒答逻辑（检索得分低于阈值就说「文档里没有」）+ 手写 10 个测试问题人工评分
+- [ ] W4-D5（周五）：新建 RAG 仓库，README 按四段写（业务问题 → 技术选型 → 难点 → 结果含正确率），push
+- [ ] W4-周末：简历 v1（只写两个项目：CLI 助手 + RAG，按四段式）+ 注册 Boss 直聘/拉勾，备好搜索关键词「AI 应用开发 / LLM 应用 / AIGC 开发 / Agent 开发」
+- **砍掉不做的**：FastAPI 部署、demo 视频、hybrid 检索 + rerank（被面试问到再现场答思路）、RAGAS 完整评估框架
+- **12-01（周一）开投**：先投 20-30 家练手
 
 ## Week 2 预告
 
