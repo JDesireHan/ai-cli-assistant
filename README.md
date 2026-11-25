@@ -10,7 +10,7 @@
 - 防死循环保护、路径越权防护（面试可讲的两个安全设计点）
 
 ## 快速开始
-
+![运行截图](docs/screenShot.png)
 ```bash
 pip install -r requirements.txt
 copy .env.example .env    # 填入 API Key
@@ -65,8 +65,7 @@ assistant/
 - [x] **动手**：把 tools.py 里的 `import json` 挪到文件顶部（已在顶部，`execute_tool` 内只保留 `json.loads`；`main.py` 曾被粘入问答模式的无效片段，已清理）
 - [x] 用 Git 初始化仓库（2026-11-06 完成：`cfa196f` 首次提交；`18f4b49` 把运行时 `user_profile.json` 移出版本库。`.env` 与用户档案均已排除，未入库）
 - [x] 推到 GitHub（2026-11-23 完成：远端 `master` 已与本地 `993d0ec` 同步，github.com/JDesireHan/ai-cli-assistant 不再是空仓库。提交身份早已改为 `JDesireHan`）
-- [ ] README 补一张运行截图
-  - 跑一遍 `python main.py`，问它「现在几点了？」触发一次工具调用，截一张能看到工具调用过程和最终回答的图，存为 `docs/screenshot.png`，并在 README「快速开始」小节里引用（`![运行截图](docs/screenshot.png)`），然后 `git add docs && git commit && git push`
+- [x] README 补一张运行截图（2026-11-25 完成：`docs/screenShot.png` 已提交，README「快速开始」第 13 行已引用）
 
 ## Week 4-5 打卡清单（2026-11-23 ~ 12-06，RAG 完整版，投递定在 12-08）
 
